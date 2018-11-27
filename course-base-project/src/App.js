@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
+import styles from './App.css';
 import Person from './Person/Person'
+// The components that throws errors should be wrapped with this component
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary' 
 
 class App extends Component {
   state = {
     persons: [
       { id: 'idx1', name: 'Fernando', age: '25'},
-      { id: 'idx2', name: 'Kenneth', age: '25'}
+      { id: 'idx2', name: 'Some other name', age: '25'}
     ]
   }
 
@@ -49,7 +51,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className={styles.App}>
         <h1>Hi! I'm a react App</h1>
         <button onClick={this.togglePersonsHandler}>Toggle persons!</button>
         {persons}
